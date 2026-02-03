@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using StoreApi.Data;
 
 namespace StoreApi.Controllers;
 
@@ -6,5 +7,10 @@ namespace StoreApi.Controllers;
 [Route("api/[controller]")]
 public class StoreController : ControllerBase
 {
-    
+    protected readonly AppDbContext dbContext;
+
+    public StoreController(AppDbContext context)
+    {
+        dbContext = context;
+    }
 }

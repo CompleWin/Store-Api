@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using StoreApi.Model;
+using StoreApi.Seed;
 
 namespace StoreApi.Data;
 
@@ -18,5 +19,12 @@ public class AppDbContext : IdentityDbContext
     {
         base.OnConfiguring(optionsBuilder);
         optionsBuilder.ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
+    }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+
+        builder.Entity<Product>().HasData(FakeData.GenerateFakeProducts());
     }
 }
