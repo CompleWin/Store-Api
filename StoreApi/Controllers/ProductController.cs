@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Net;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StoreApi.Data;
+using StoreApi.Model;
 
 namespace StoreApi.Controllers;
 
@@ -13,6 +15,11 @@ public class ProductController : StoreController
     [HttpGet]
     public async Task<IActionResult> GetProducts()
     {
-        return Ok(await dbContext.Products.ToListAsync());
+        ResponseServer response = new ResponseServer
+        {
+            StatusCode = HttpStatusCode.OK,
+            Response = await dbContext.Products.ToListAsync()
+        };
+        return Ok(response);
     }
 }
