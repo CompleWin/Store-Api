@@ -93,4 +93,45 @@ public class ProductController : StoreController
                 ex.Message));
         }
     }
+
+    [HttpPut]
+    public async Task<ActionResult<ResponseServer>> UpdateProduct(
+        int id,
+        [FromBody] ProductUpdateDto updateDto)
+    {
+        try
+        {
+            if (id < 0 || id != updateDto.Id)
+            {
+                return BadRequest(new ResponseServer(false, HttpStatusCode.BadRequest, null, "Неккоректный id"));
+            }
+            
+            Product item = await dbContext.Products.FirstOrDefaultAsync(e => e.Id == id);
+            if (item is null)
+            {
+                return NotFound(new ResponseServer(false, HttpStatusCode.NotFound, null, "Товар с таким id не найден"));
+            }
+            
+            item.Name = updateDto.Name;
+            item.Description = updateDto.Description;
+            item.Category = updateDto.Category;
+            item.Price = updateDto.Price;
+            item.SpecialTag = updateDto.SpecialTag ?? item.SpecialTag;
+
+            if (updateDto.Image is not null && updateDto.Image.Length > 0)
+            {
+                item.Image = "https://picsum.photos/300/300";
+            }
+
+            dbContext.Products.Update(item);
+            await dbContext.SaveChangesAsync();
+            
+            return Ok(new ResponseServer(true, HttpStatusCode.OK, item));
+            
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new ResponseServer(false, HttpStatusCode.BadRequest, null, ex.Message));
+        }
+    }
 }
