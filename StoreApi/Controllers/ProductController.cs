@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StoreApi.Data;
 using StoreApi.Model;
+using StoreApi.ModelDto;
 
 namespace StoreApi.Controllers;
 [Route("api/[controller]/[action]")]
@@ -50,5 +51,12 @@ public class ProductController : StoreController
         response.StatusCode = HttpStatusCode.OK;
         response.Response = product;
         return Ok(response);
+    }
+
+    [HttpPost]
+    public async Task<ActionResult<ResponseServer>> CreateProduct(
+        [FromBody] ProductCreateDto createDto)
+    {
+        
     }
 }
