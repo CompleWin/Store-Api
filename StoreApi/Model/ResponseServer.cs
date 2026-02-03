@@ -8,4 +8,17 @@ public class ResponseServer
     public HttpStatusCode StatusCode { get; set; }
     public List<string> ErrorMessages { get; set; } = [];
     public object Response { get; set; }
+
+    public ResponseServer(bool isSucces, HttpStatusCode statusCode, object response, params string[] errorMessages)
+    {
+        IsSucces = isSucces;
+        StatusCode = statusCode;
+        Response = response;
+        foreach (var errorMessage in errorMessages)
+        {
+            ErrorMessages.Add(errorMessage);
+        }
+    }
+
+    public ResponseServer() {}
 }

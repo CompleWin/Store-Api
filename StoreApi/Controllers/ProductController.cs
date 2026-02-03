@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using Bogus;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StoreApi.Data;
@@ -6,7 +7,7 @@ using StoreApi.Model;
 using StoreApi.ModelDto;
 
 namespace StoreApi.Controllers;
-[Route("api/[controller]/[action]")]
+
 public class ProductController : StoreController
 {
     public ProductController(AppDbContext dbContext) : base(dbContext)
@@ -24,11 +25,10 @@ public class ProductController : StoreController
         return Ok(response);
     }
 
-    
-    [HttpGet]
+
+    [HttpGet("{id}", Name = nameof(GetProductById))]
     public async Task<IActionResult> GetProductById(int id)
     {
-
         ResponseServer response = new ResponseServer();
         if (id <= 0)
         {
@@ -57,6 +57,40 @@ public class ProductController : StoreController
     public async Task<ActionResult<ResponseServer>> CreateProduct(
         [FromBody] ProductCreateDto createDto)
     {
-        
+        try
+        {
+            if (ModelState.IsValid)
+            {
+                if (createDto.Image is null
+                    || createDto.Image.Length == 0)
+                {
+                    return BadRequest(new ResponseServer(false, HttpStatusCode.BadRequest, null,
+                        "Image не может быть пустым!"));
+                }
+
+                Product item = new()
+                {
+                    Name = createDto.Name,
+                    Description = createDto.Description,
+                    Category = createDto.Category,
+                    Price = createDto.Price,
+                    SpecialTag = createDto.SpecialTag,
+                    Image = "https://picsum.photos/200/300"
+                };
+
+                await dbContext.Products.AddAsync(item);
+                await dbContext.SaveChangesAsync();
+                
+                return CreatedAtRoute(nameof(GetProductById), new { id = item.Id },
+                    new ResponseServer(true, HttpStatusCode.Created, item, Array.Empty<string>()));
+            }
+
+            return BadRequest(new ResponseServer(false, HttpStatusCode.BadRequest, null, "Что-то не так с моделью"));
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(new ResponseServer(false, HttpStatusCode.BadRequest, null, "Что-то пошло не так",
+                ex.Message));
+        }
     }
 }

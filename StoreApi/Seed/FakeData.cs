@@ -17,7 +17,7 @@ public static class FakeData
             .RuleFor(p => p.Category, f => f.PickRandom(categories))
             .RuleFor(p => p.SpecialTag, f => f.PickRandom(specialTag))
             .RuleFor(p => p.Price, f => Math.Round(f.Random.Double(1, 1000), 2))
-            .RuleFor(p => p.ImageUrl, f => f.Image.PicsumUrl())
+            .RuleFor(p => p.Image, f => f.Image.PicsumUrl())
             .Generate(count);
     }
 }
