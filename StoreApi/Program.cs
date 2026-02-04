@@ -1,6 +1,7 @@
-using Microsoft.EntityFrameworkCore;
-using StoreApi.Data;
+using System.Text;
 using StoreApi.Extensions;
+
+Console.OutputEncoding = Encoding.Unicode;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,11 +10,14 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
 builder.Services.AddPostgreSqlDbContext(builder.Configuration);
+builder.Services.AddPostgreSqlIdentityContext();
 
 var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
 app.MapControllers();
+
+await app.Services.InitializeRoleAsync();
 
 app.Run();
