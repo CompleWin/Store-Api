@@ -134,4 +134,32 @@ public class ProductController : StoreController
             return BadRequest(new ResponseServer(false, HttpStatusCode.BadRequest, null, ex.Message));
         }
     }
+
+    [HttpDelete]
+    public async Task<ActionResult<ResponseServer>> DeleteProduct(int id)
+    {
+        try
+        {
+            if (id <= 0)
+            {
+                return BadRequest(ResponseServer.CreateBadRequest("Неккоректный id"));
+            }
+            
+            Product item = await dbContext.Products.FirstOrDefaultAsync(e => e.Id == id);
+            if (item is null)
+            {
+                return NotFound(ResponseServer.CreateNotFound("Товар с указанным Id не найден"));
+            }
+            
+            dbContext.Products.Remove(item);
+            await dbContext.SaveChangesAsync();
+            
+            return Ok(new ResponseServer(true, HttpStatusCode.NoContent, null));
+            
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ResponseServer.CreateBadRequest("Что-то пошло не так", ex.Message));
+        }
+    }
 }

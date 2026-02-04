@@ -21,4 +21,25 @@ public class ResponseServer
     }
 
     public ResponseServer() {}
+
+    public static ResponseServer CreateBadRequest(params string[] errorMessages)
+    {
+        if (errorMessages.Length == 0)
+        {
+            return new ResponseServer(false, HttpStatusCode.BadRequest, null);
+        }
+        
+        return new ResponseServer(false, HttpStatusCode.BadRequest, null, errorMessages);
+    }
+
+    public static ResponseServer CreateNotFound(params string[] errorMessages)
+    {
+        if (errorMessages.Length == 0)
+        {
+            return new ResponseServer(false, HttpStatusCode.NotFound, null);
+        }
+        
+        return new ResponseServer(false, HttpStatusCode.NotFound, null, errorMessages);
+    }
+    
 }
