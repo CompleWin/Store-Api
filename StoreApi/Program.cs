@@ -6,7 +6,7 @@ Console.OutputEncoding = Encoding.Unicode;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGenCustomConfig();
 builder.Services.AddControllers();
 
 builder.Services.AddPostgreSqlDbContext(builder.Configuration);
