@@ -6,7 +6,7 @@ namespace StoreApi.Extensions;
 
 public static class AuthenticationServiceExtension
 {
-    public static IServiceCollection AddAuthenticationService(
+    public static IServiceCollection AddAuthenticationConfig(
         this IServiceCollection services,
         IConfiguration configuration)
     {
