@@ -11,6 +11,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddPostgreSqlDbContext(builder.Configuration);
 builder.Services.AddPostgreSqlIdentityContext();
+builder.Services.AddConfigureIdentityOptions();
 
 var app = builder.Build();
 
