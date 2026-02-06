@@ -9,8 +9,8 @@ public class StoreController : ControllerBase
 {
     protected readonly AppDbContext dbContext;
 
-    public StoreController(AppDbContext context)
+    public StoreController(AppDbContext dbContext)
     {
-        dbContext = context;
+        this.dbContext = dbContext;
     }
 }

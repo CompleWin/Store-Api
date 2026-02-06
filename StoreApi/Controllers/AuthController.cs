@@ -18,11 +18,11 @@ public class AuthController : StoreController
     private readonly JwtTokenGenerator _jwtTokenGenerator;
 
     public AuthController(
-        AppDbContext context,
+        AppDbContext dbContext,
         UserManager<AppUser> userManager,
         RoleManager<IdentityRole> roleManager,
         JwtTokenGenerator jwtTokenGenerator
-    ) : base(context)
+    ) : base(dbContext)
     {
         _userManager = userManager;
         _roleManager = roleManager;

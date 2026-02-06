@@ -41,5 +41,13 @@ public class ResponseServer
         
         return new ResponseServer(false, HttpStatusCode.NotFound, null, errorMessages);
     }
-    
+
+    public static ResponseServer CreateOk(object response = null, params string[] errorMessages)
+    {
+        if (errorMessages.Length == 0)
+        {
+            return new ResponseServer(true, HttpStatusCode.OK, response);
+        }
+        return new ResponseServer(true, HttpStatusCode.OK, response, errorMessages);
+    }
 }

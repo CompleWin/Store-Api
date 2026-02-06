@@ -10,7 +10,7 @@ namespace StoreApi.Controllers;
 [Route("api/[controller]/[action]")]
 public class AuthTestController : StoreController
 {
-    public AuthTestController(AppDbContext context) : base(context)
+    public AuthTestController(AppDbContext dbContext) : base(dbContext)
     {
     }
 
