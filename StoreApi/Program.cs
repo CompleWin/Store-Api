@@ -14,7 +14,7 @@ builder.Services.AddPostgreSqlIdentityContext();
 builder.Services.AddConfigureIdentityOptions();
 builder.Services.AddJwtTokenGenerator();
 builder.Services.AddShoppingCartService();
-
+builder.Services.AddOrderService();
 builder.Services.AddAuthenticationConfig(builder.Configuration);
 
 builder.Services.AddCors();

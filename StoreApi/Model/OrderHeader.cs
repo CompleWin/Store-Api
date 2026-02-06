@@ -16,6 +16,7 @@ public sealed class OrderHeader
     [ForeignKey(nameof(AppUserId))]
     public AppUser User { get; set; }
 
+    public string Status { get; set; }
     public double OrderTotalAmount { get; set; }
     public DateTime OrderDateTime { get; set; }
     public int TotalCount { get; set; }
