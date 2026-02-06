@@ -13,6 +13,7 @@ builder.Services.AddPostgreSqlDbContext(builder.Configuration);
 builder.Services.AddPostgreSqlIdentityContext();
 builder.Services.AddConfigureIdentityOptions();
 builder.Services.AddJwtTokenGenerator();
+builder.Services.AddShoppingCartService();
 
 builder.Services.AddAuthenticationConfig(builder.Configuration);
 
