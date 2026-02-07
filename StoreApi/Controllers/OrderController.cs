@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Net;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using StoreApi.Data;
 using StoreApi.Model;
@@ -8,12 +9,12 @@ using StoreApi.Service;
 namespace StoreApi.Controllers;
 
 [Route("api/[controller]/[action]")]
-public sealed class OrderController : StoreController 
+public sealed class OrderController : StoreController
 {
     private readonly OrderService _orderService;
 
     public OrderController(
-        AppDbContext dbContext, 
+        AppDbContext dbContext,
         OrderService orderService) : base(dbContext)
     {
         _orderService = orderService;
@@ -50,7 +51,7 @@ public sealed class OrderController : StoreController
             {
                 return Ok(ResponseServer.CreateOk(order));
             }
-        
+
             return NotFound(ResponseServer.CreateBadRequest("Order not found"));
         }
         catch (Exception ex)
@@ -62,17 +63,38 @@ public sealed class OrderController : StoreController
     [HttpGet("{userId:guid}")]
     public async Task<ActionResult<ResponseServer>> GetOrdersByUserId(string userId)
     {
-
         try
         {
             var userHeaders = await _orderService.GetOrderByUserIdAsync(userId);
-            return Ok(ResponseServer.CreateOk(userHeaders));
+            return Ok(ResponseServer.CreateOk(true));
         }
         catch (Exception ex)
         {
             return BadRequest(ResponseServer.CreateBadRequest(ex.Message));
         }
-        
     }
-    
+
+
+    [HttpPut("{orderId}")]
+    public async Task<ActionResult<ResponseServer>> UpdateOrder(int orderId,
+        [FromBody] OrderHeaderUpdateDto updateDto)
+    {
+        try
+        {
+            bool isSucces = await _orderService.UpdateOrderHeaderAsync(orderId, updateDto);
+            if (!isSucces)
+            {
+                return BadRequest(ResponseServer.CreateBadRequest("Something went wrong"));
+            }
+            
+            return Ok(ResponseServer.CreateOk(orderId));
+        }
+        catch (Exception ex)
+        {
+            return StatusCode((int)HttpStatusCode.InternalServerError, new ResponseServer(false,
+                HttpStatusCode.InternalServerError,
+                null,
+                "Internal Server Error", ex.Message));
+        }
+    }
 }
