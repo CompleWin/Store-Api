@@ -1,4 +1,5 @@
-﻿using StoreApi.Common;
+﻿using Microsoft.EntityFrameworkCore;
+using StoreApi.Common;
 using StoreApi.Data;
 using StoreApi.Model;
 using StoreApi.ModelDto;
@@ -52,4 +53,29 @@ public sealed class OrderService
         return order;
     }
 
+    public async Task<OrderHeader?> GetOrderByIdAsync(int orderId)
+    {
+        return await  _dbContext.OrderHeaders
+            .Include(i => i.OrderDetailsItems)
+            .ThenInclude(i => i.Product)
+            .FirstOrDefaultAsync(i => i.OrderHeaderId == orderId);
+    }
+
+    public async Task<IEnumerable<OrderHeader>> GetOrderByUserIdAsync(string userId)
+    {
+        var query = _dbContext.OrderHeaders
+            .Include(i => i.OrderDetailsItems)
+            .ThenInclude(i => i.Product)
+            .OrderByDescending(o => o.AppUserId);
+
+        if (!string.IsNullOrEmpty(userId))
+        {
+            return await query
+                .Where(i => i.AppUserId == userId)
+                .ToListAsync();
+        }
+        
+        return await query.ToListAsync();
+        
+    }
 }
