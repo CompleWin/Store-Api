@@ -26,7 +26,8 @@ public sealed class OrderService
             CustomerEmail = orderHeaderCreateDto.CustomerEmail,
             OrderTotalAmount = orderHeaderCreateDto.OrderTotalAmount,
             TotalCount = orderHeaderCreateDto.TotalCount,
-            Status = status
+            Status = status,
+            OrderDateTime = DateTime.UtcNow
         };
         
         await _dbContext.OrderHeaders.AddAsync(order);
