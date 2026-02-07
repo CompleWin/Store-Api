@@ -76,7 +76,7 @@ public sealed class OrderController : StoreController
 
 
     [HttpPut("{orderId}")]
-    public async Task<ActionResult<ResponseServer>> UpdateOrder(int orderId,
+    public async Task<ActionResult<ResponseServer>> UpdateOrderHeader(int orderId,
         [FromBody] OrderHeaderUpdateDto updateDto)
     {
         try
