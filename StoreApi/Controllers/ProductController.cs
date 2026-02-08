@@ -5,13 +5,18 @@ using Microsoft.EntityFrameworkCore;
 using StoreApi.Data;
 using StoreApi.Model;
 using StoreApi.ModelDto;
+using StoreApi.Service.Storage;
 
 namespace StoreApi.Controllers;
 
 public class ProductController : StoreController
 {
-    public ProductController(AppDbContext dbContext) : base(dbContext)
+    private readonly IFileStorageService _fileStorageService;
+
+    public ProductController(AppDbContext dbContext,
+        IFileStorageService fileStorageService) : base(dbContext)
     {
+        _fileStorageService = fileStorageService;
     }
 
     [HttpGet]
@@ -55,7 +60,7 @@ public class ProductController : StoreController
 
     [HttpPost]
     public async Task<ActionResult<ResponseServer>> CreateProduct(
-        [FromBody] ProductCreateDto createDto)
+        [FromForm] ProductCreateDto createDto)
     {
         try
         {
@@ -75,7 +80,7 @@ public class ProductController : StoreController
                     Category = createDto.Category,
                     Price = createDto.Price,
                     SpecialTag = createDto.SpecialTag,
-                    Image = "https://picsum.photos/200/300"
+                    Image = await _fileStorageService.UploadFileAsync(createDto.Image)
                 };
 
                 await dbContext.Products.AddAsync(item);
@@ -97,7 +102,7 @@ public class ProductController : StoreController
     [HttpPut]
     public async Task<ActionResult<ResponseServer>> UpdateProduct(
         int id,
-        [FromBody] ProductUpdateDto updateDto)
+        [FromForm] ProductUpdateDto updateDto)
     {
         try
         {
@@ -106,27 +111,28 @@ public class ProductController : StoreController
                 return BadRequest(new ResponseServer(false, HttpStatusCode.BadRequest, null, "Неккоректный id"));
             }
             
-            Product item = await dbContext.Products.FirstOrDefaultAsync(e => e.Id == id);
-            if (item is null)
+            Product productFromDb = await dbContext.Products.FirstOrDefaultAsync(e => e.Id == id);
+            if (productFromDb is null)
             {
                 return NotFound(new ResponseServer(false, HttpStatusCode.NotFound, null, "Товар с таким id не найден"));
             }
             
-            item.Name = updateDto.Name;
-            item.Description = updateDto.Description;
-            item.Category = updateDto.Category;
-            item.Price = updateDto.Price;
-            item.SpecialTag = updateDto.SpecialTag ?? item.SpecialTag;
+            productFromDb.Name = updateDto.Name;
+            productFromDb.Description = updateDto.Description;
+            productFromDb.Category = updateDto.Category;
+            productFromDb.Price = updateDto.Price;
+            productFromDb.SpecialTag = updateDto.SpecialTag ?? productFromDb.SpecialTag;
 
             if (updateDto.Image is not null && updateDto.Image.Length > 0)
             {
-                item.Image = "https://picsum.photos/300/300";
+                await _fileStorageService.RemoveFileAsync(productFromDb.Image.Split('/').Last());
+                productFromDb.Image = await _fileStorageService.UploadFileAsync(updateDto.Image);
             }
 
-            dbContext.Products.Update(item);
+            dbContext.Products.Update(productFromDb);
             await dbContext.SaveChangesAsync();
             
-            return Ok(new ResponseServer(true, HttpStatusCode.OK, item));
+            return Ok(new ResponseServer(true, HttpStatusCode.OK, productFromDb));
             
         }
         catch (Exception ex)
@@ -150,6 +156,8 @@ public class ProductController : StoreController
             {
                 return NotFound(ResponseServer.CreateNotFound("Товар с указанным Id не найден"));
             }
+            
+            await _fileStorageService.RemoveFileAsync(item.Image.Split('/').Last());
             
             dbContext.Products.Remove(item);
             await dbContext.SaveChangesAsync();

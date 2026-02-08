@@ -17,7 +17,7 @@ public static class FakeData
             .RuleFor(p => p.Category, f => f.PickRandom(categories))
             .RuleFor(p => p.SpecialTag, f => f.PickRandom(specialTag))
             .RuleFor(p => p.Price, f => Math.Round(f.Random.Double(1, 1000), 2))
-            .RuleFor(p => p.Image, f => f.Image.PicsumUrl())
+            .RuleFor(p => p.Image, $"https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img{Random.Shared.Next(10)}.png")
             .Generate(count);
     }
 }

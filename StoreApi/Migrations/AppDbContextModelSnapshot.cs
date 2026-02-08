@@ -362,201 +362,201 @@ namespace StoreApi.Migrations
                         new
                         {
                             Id = 1,
-                            Category = "Категория 4",
-                            Description = "Воздействия организационной вызывает.",
-                            Image = "https://picsum.photos/640/480/?image=107",
-                            Name = "Эргономичный Натуральный Стол",
-                            Price = 83.480000000000004,
-                            SpecialTag = "Рекомендуемый"
+                            Category = "Категория 2",
+                            Description = "Управление качественно активом важную.",
+                            Image = "https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img7.png",
+                            Name = "Свободный Стальной Майка",
+                            Price = 738.25,
+                            SpecialTag = "Новинка"
                         },
                         new
                         {
                             Id = 2,
-                            Category = "Категория 1",
-                            Description = "Активизации модели инновационный позиции профессионального участия опыт.",
-                            Image = "https://picsum.photos/640/480/?image=45",
-                            Name = "Потрясающий Стальной Кошелек",
-                            Price = 616.25,
-                            SpecialTag = "Рекомендуемый"
+                            Category = "Категория 4",
+                            Description = "Другой от значительной забывать поэтапного повышение уточнения значимость влечёт.",
+                            Image = "https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img7.png",
+                            Name = "Маленький Натуральный Сабо",
+                            Price = 344.80000000000001,
+                            SpecialTag = "Топ за свои деньги"
                         },
                         new
                         {
                             Id = 3,
-                            Category = "Категория 3",
-                            Description = "Развития демократической различных инновационный позиции активом повседневной всего.",
-                            Image = "https://picsum.photos/640/480/?image=1026",
-                            Name = "Грубый Неодимовый Носки",
-                            Price = 807.75999999999999,
-                            SpecialTag = "Рекомендуемый"
+                            Category = "Категория 4",
+                            Description = "Опыт соответствующей также.",
+                            Image = "https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img7.png",
+                            Name = "Большой Натуральный Плащ",
+                            Price = 831.44000000000005,
+                            SpecialTag = "Новинка"
                         },
                         new
                         {
                             Id = 4,
                             Category = "Категория 3",
-                            Description = "Мира практика ресурсосберегающих.",
-                            Image = "https://picsum.photos/640/480/?image=355",
-                            Name = "Великолепный Гранитный Куртка",
-                            Price = 320.55000000000001,
-                            SpecialTag = "Топ за свои деньги"
+                            Description = "Сознания потребностям кругу.",
+                            Image = "https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img7.png",
+                            Name = "Лоснящийся Стальной Компьютер",
+                            Price = 157.03,
+                            SpecialTag = "Новинка"
                         },
                         new
                         {
                             Id = 5,
-                            Category = "Категория 4",
-                            Description = "Идейные насущным способствует задания определения направлений модели социально-экономическое.",
-                            Image = "https://picsum.photos/640/480/?image=294",
-                            Name = "Фантастический Бетонный Кулон",
-                            Price = 232.78999999999999,
-                            SpecialTag = "Рекомендуемый"
+                            Category = "Категория 2",
+                            Description = "Рост проект предпосылки сущности богатый гражданского постоянное играет порядка повышение.",
+                            Image = "https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img7.png",
+                            Name = "Невероятный Деревянный Стол",
+                            Price = 427.49000000000001,
+                            SpecialTag = "Топ за свои деньги"
                         },
                         new
                         {
                             Id = 6,
-                            Category = "Категория 1",
-                            Description = "Отношении форм же также.",
-                            Image = "https://picsum.photos/640/480/?image=157",
-                            Name = "Фантастический Пластиковый Носки",
-                            Price = 376.22000000000003,
-                            SpecialTag = "Новинка"
+                            Category = "Категория 3",
+                            Description = "Значение за обучения интересный принципов форм способствует.",
+                            Image = "https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img7.png",
+                            Name = "Великолепный Деревянный Ремень",
+                            Price = 655.88999999999999,
+                            SpecialTag = "Топ за свои деньги"
                         },
                         new
                         {
                             Id = 7,
-                            Category = "Категория 1",
-                            Description = "Намеченных задач прогресса мира задач другой эксперимент принципов следует.",
-                            Image = "https://picsum.photos/640/480/?image=327",
-                            Name = "Эргономичный Меховой Портмоне",
-                            Price = 452.81999999999999,
-                            SpecialTag = "Новинка"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            Category = "Категория 3",
-                            Description = "Базы что выполнять а равным.",
-                            Image = "https://picsum.photos/640/480/?image=125",
-                            Name = "Практичный Деревянный Стол",
-                            Price = 766.00999999999999,
+                            Category = "Категория 2",
+                            Description = "Обществом повышение уровня.",
+                            Image = "https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img7.png",
+                            Name = "Фантастический Хлопковый Портмоне",
+                            Price = 352.54000000000002,
                             SpecialTag = "Рекомендуемый"
                         },
                         new
                         {
-                            Id = 9,
+                            Id = 8,
                             Category = "Категория 1",
-                            Description = "Выполнять организации модель.",
-                            Image = "https://picsum.photos/640/480/?image=870",
-                            Name = "Маленький Меховой Кошелек",
-                            Price = 97.590000000000003,
+                            Description = "В что соответствующей новая зависит же нашей системы обучения поставленных.",
+                            Image = "https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img7.png",
+                            Name = "Потрясающий Натуральный Стул",
+                            Price = 941.02999999999997,
+                            SpecialTag = "Новинка"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Category = "Категория 2",
+                            Description = "Кадров качественно таким проверки кадровой.",
+                            Image = "https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img7.png",
+                            Name = "Великолепный Резиновый Сабо",
+                            Price = 374.27999999999997,
                             SpecialTag = "Рекомендуемый"
                         },
                         new
                         {
                             Id = 10,
                             Category = "Категория 5",
-                            Description = "Развития обуславливает от следует поэтапного напрямую значительной выбранный.",
-                            Image = "https://picsum.photos/640/480/?image=69",
-                            Name = "Лоснящийся Гранитный Автомобиль",
-                            Price = 921.88999999999999,
+                            Description = "Богатый формирования повышению.",
+                            Image = "https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img7.png",
+                            Name = "Интеллектуальный Стальной Кулон",
+                            Price = 927.15999999999997,
                             SpecialTag = "Топ за свои деньги"
                         },
                         new
                         {
                             Id = 11,
-                            Category = "Категория 1",
-                            Description = "Существующий предпосылки выбранный мира ресурсосберегающих очевидна обеспечивает задания.",
-                            Image = "https://picsum.photos/640/480/?image=749",
-                            Name = "Большой Меховой Плащ",
-                            Price = 554.69000000000005,
-                            SpecialTag = "Рекомендуемый"
+                            Category = "Категория 5",
+                            Description = "Богатый способствует поставленных модели значение широкому.",
+                            Image = "https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img7.png",
+                            Name = "Интеллектуальный Стальной Клатч",
+                            Price = 631.75,
+                            SpecialTag = "Топ за свои деньги"
                         },
                         new
                         {
                             Id = 12,
-                            Category = "Категория 1",
-                            Description = "Повышение всего сущности социально-ориентированный соответствующих особенности постоянное работы зависит.",
-                            Image = "https://picsum.photos/640/480/?image=283",
-                            Name = "Интеллектуальный Пластиковый Плащ",
-                            Price = 802.73000000000002,
-                            SpecialTag = "Новинка"
+                            Category = "Категория 5",
+                            Description = "Потребностям стороны место занимаемых сознания.",
+                            Image = "https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img7.png",
+                            Name = "Невероятный Резиновый Ножницы",
+                            Price = 542.11000000000001,
+                            SpecialTag = "Топ за свои деньги"
                         },
                         new
                         {
                             Id = 13,
-                            Category = "Категория 5",
-                            Description = "Модернизации уточнения постоянный интересный значимость принимаемых не способствует.",
-                            Image = "https://picsum.photos/640/480/?image=365",
-                            Name = "Практичный Резиновый Берет",
-                            Price = 347.73000000000002,
-                            SpecialTag = "Новинка"
+                            Category = "Категория 4",
+                            Description = "Выбранный участниками инновационный форм опыт сфера особенности повседневной активом.",
+                            Image = "https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img7.png",
+                            Name = "Большой Неодимовый Стол",
+                            Price = 787.72000000000003,
+                            SpecialTag = "Топ за свои деньги"
                         },
                         new
                         {
                             Id = 14,
-                            Category = "Категория 4",
-                            Description = "На соответствующей принципов на.",
-                            Image = "https://picsum.photos/640/480/?image=343",
-                            Name = "Маленький Хлопковый Компьютер",
-                            Price = 257.22000000000003,
-                            SpecialTag = "Рекомендуемый"
+                            Category = "Категория 5",
+                            Description = "Целесообразности шагов забывать.",
+                            Image = "https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img7.png",
+                            Name = "Великолепный Кожанный Ремень",
+                            Price = 623.96000000000004,
+                            SpecialTag = "Топ за свои деньги"
                         },
                         new
                         {
                             Id = 15,
-                            Category = "Категория 4",
-                            Description = "Показывает предложений дальнейших по.",
-                            Image = "https://picsum.photos/640/480/?image=206",
-                            Name = "Практичный Натуральный Сабо",
-                            Price = 29.989999999999998,
-                            SpecialTag = "Новинка"
+                            Category = "Категория 2",
+                            Description = "Дальнейшее таким повышение.",
+                            Image = "https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img7.png",
+                            Name = "Невероятный Бетонный Ножницы",
+                            Price = 824.05999999999995,
+                            SpecialTag = "Рекомендуемый"
                         },
                         new
                         {
                             Id = 16,
-                            Category = "Категория 5",
-                            Description = "Разработке широкому национальный прогресса развития повышению нашей выполнять.",
-                            Image = "https://picsum.photos/640/480/?image=396",
-                            Name = "Интеллектуальный Натуральный Клатч",
-                            Price = 375.06999999999999,
-                            SpecialTag = "Топ за свои деньги"
-                        },
-                        new
-                        {
-                            Id = 17,
-                            Category = "Категория 1",
-                            Description = "Представляет участия дальнейшее развития кадров.",
-                            Image = "https://picsum.photos/640/480/?image=1062",
-                            Name = "Маленький Неодимовый Клатч",
-                            Price = 880.48000000000002,
+                            Category = "Категория 4",
+                            Description = "Дальнейшее принципов нашей идейные соответствующей значительной систему общества напрямую.",
+                            Image = "https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img7.png",
+                            Name = "Большой Хлопковый Сабо",
+                            Price = 498.82999999999998,
                             SpecialTag = "Новинка"
                         },
                         new
                         {
-                            Id = 18,
-                            Category = "Категория 5",
-                            Description = "С порядка значительной идейные значительной рост создаёт.",
-                            Image = "https://picsum.photos/640/480/?image=890",
-                            Name = "Маленький Стальной Автомобиль",
-                            Price = 412.88,
+                            Id = 17,
+                            Category = "Категория 2",
+                            Description = "Обществом роль технологий стороны системы различных изменений разработке изменений интересный.",
+                            Image = "https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img7.png",
+                            Name = "Эргономичный Гранитный Берет",
+                            Price = 221.15000000000001,
                             SpecialTag = "Топ за свои деньги"
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Category = "Категория 4",
+                            Description = "Широким интересный постоянное место подготовке таким.",
+                            Image = "https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img7.png",
+                            Name = "Потрясающий Кожанный Ремень",
+                            Price = 991.74000000000001,
+                            SpecialTag = "Новинка"
                         },
                         new
                         {
                             Id = 19,
                             Category = "Категория 3",
-                            Description = "Социально-экономическое сознания забывать сущности.",
-                            Image = "https://picsum.photos/640/480/?image=299",
-                            Name = "Великолепный Кожанный Шарф",
-                            Price = 858.53999999999996,
+                            Description = "Общественной всего прогрессивного постоянное.",
+                            Image = "https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img7.png",
+                            Name = "Эргономичный Кожанный Носки",
+                            Price = 951.70000000000005,
                             SpecialTag = "Рекомендуемый"
                         },
                         new
                         {
                             Id = 20,
-                            Category = "Категория 4",
-                            Description = "Дальнейшее забывать финансовых роль финансовых всего общества прогрессивного важные гражданского.",
-                            Image = "https://picsum.photos/640/480/?image=269",
-                            Name = "Невероятный Меховой Ботинок",
-                            Price = 480.19999999999999,
+                            Category = "Категория 2",
+                            Description = "Постоянный подготовке консультация отношении рост значительной.",
+                            Image = "https://s3.twcstorage.ru/a8f5cea5-14e9-4644-975c-4e58aeeb2499/img7.png",
+                            Name = "Потрясающий Хлопковый Куртка",
+                            Price = 1.6899999999999999,
                             SpecialTag = "Новинка"
                         });
                 });

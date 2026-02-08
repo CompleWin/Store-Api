@@ -18,6 +18,7 @@ builder.Services.AddOrderService();
 builder.Services.AddAuthenticationConfig(builder.Configuration);
 builder.Services.AddPaymentService();
 builder.Services.AddCors();
+builder.Services.AddFileStorageService(builder.Configuration);
 
 var app = builder.Build();
 
