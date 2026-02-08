@@ -9,6 +9,7 @@ using StoreApi.Service.Storage;
 
 namespace StoreApi.Controllers;
 
+[Route("api/[controller]/[action]")]
 public class ProductController : StoreController
 {
     private readonly IFileStorageService _fileStorageService;
@@ -31,6 +32,21 @@ public class ProductController : StoreController
     }
 
 
+    [HttpGet]
+    public async Task<ActionResult<ResponseServer>> FetchProductsWithPagination(
+        int skip = 0, int take = 5)
+    {
+        var products = await dbContext
+            .Products
+            .Skip(skip)
+            .OrderBy(p => p.Id)
+            .Take(take)
+            .ToListAsync();
+        
+        return Ok(ResponseServer.CreateOk(products));
+    }
+    
+    
     [HttpGet("{id}", Name = nameof(GetProductById))]
     public async Task<IActionResult> GetProductById(int id)
     {
